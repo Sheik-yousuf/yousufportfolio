@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheik Yousuf B A | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #00e5ff;
+            --secondary-color: #0066ff;
+            --dark-bg: #0a0a0f;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-light: #ffffff;
+            --text-muted: #aaaaaa;
+            --gradient: linear-gradient(45deg, #00e5ff, #0066ff);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background: var(--dark-bg);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 229, 255, 0.1);
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        .logo i {
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 10, 15, 0.9), rgba(10, 10, 15, 0.7)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--text-light);
+            -webkit-text-fill-color: var(--text-light);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--text-light);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 229, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Section Common Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .education-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 229, 255, 0.1);
+        }
+
+        .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 229, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.3);
+        }
+
+        .education-logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .education-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .education-card span {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .education-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Skills Section */
+        .skill-category {
+            margin-bottom: 40px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3::before {
+            content: '';
+            width: 30px;
+            height: 3px;
+            background: var(--gradient);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 229, 255, 0.05);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 229, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.1);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .skill-card span {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Internships Section */
+        .internship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .internship-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 229, 255, 0.1);
+        }
+
+        .internship-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 229, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.3);
+        }
+
+        .internship-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .internship-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .internship-header h3 {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .internship-header span {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .internship-details {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .internship-details li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .internship-details i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        .internship-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .award-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 229, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 229, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.3);
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .award-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .award-header {
+            margin-bottom: 20px;
+        }
+
+        .award-header h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .award-header span {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .award-details {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .award-date {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 229, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 229, 255, 0.15);
+            border-color: rgba(0, 229, 255, 0.3);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 229, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .project-icon i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .project-title {
+            flex: 1;
+        }
+
+        .project-title h3 {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin: 0 0 5px 0;
+            line-height: 1.4;
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-details h4,
+        .project-tech-stack h4 {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-details h4 i,
+        .project-tech-stack h4 i {
+            color: var(--primary-color);
+        }
+
+        .project-points {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
+        }
+
+        .project-points li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .project-points li i {
+            color: var(--primary-color);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .tech-tag {
+            background: rgba(0, 229, 255, 0.1);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: rgba(0, 229, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 229, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #00ffea;
+            transform: translateY(-2px);
+        }
+
+        .project-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .view-more {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 229, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .contact-text h3 {
+            color: var(--text-light);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .contact-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 25px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.1);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(0, 229, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: rgba(30, 30, 40, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #ff4d4d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .project-grid,
+            .education-grid,
+            .internship-grid,
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .project-card,
+            .internship-card,
+            .award-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>Yousufz</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#home">About</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#internships">Experience</a></li>
+                        <li><a href="#awards">Awards</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Hi, I'm your friendly developer <span>Sheik Yousuf B A</span></h1>
+                <p>I am a final-year MSc Data Science student at SRM University with a keen interest in Data Science and Full Stack Development. I focus on building end-to-end, data-driven applications by combining machine learning models with modern web technologies.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-briefcase"></i> View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-paper-plane"></i> Let's Connect
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Education</h2>
+                <p>A brief overview of my academic journey and qualifications.</p>
+            </div>
+            <div class="education-grid">
+                <div class="education-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="education-logo">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #0066ff, #00e5ff); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">SRM</div>
+                    </div>
+                    <h3>M.Sc Applied Data Science</h3>
+                    <span>SRM University</span>
+                    <p>Final-year postgraduate student specializing in data analytics, machine learning, and real-world applications.</p>
+                </div>
+                <div class="education-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="education-logo">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #0066ff, #00e5ff); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">MSC</div>
+                    </div>
+                    <h3>B.Sc Computer Science</h3>
+                    <span>Mohamed Sathak College of Technologies</span>
+                    <p>Completed undergraduate studies with a strong foundation in computer science and programming concepts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>My Skills</h2>
+                <p>Core technologies and tools I use for data science and full stack development.</p>
+            </div>
+            <div class="skill-category" data-aos="fade-up">
+                <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                <div class="skills-grid">
+                    <div class="skill-card"><i class="fab fa-python"></i><span>Python</span></div>
+                    <div class="skill-card"><i class="fab fa-java"></i><span>Java</span></div>
+                    <div class="skill-card"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                    <div class="skill-card"><i class="fab fa-php"></i><span>PHP</span></div>
+                    <div class="skill-card"><i class="fas fa-database"></i><span>SQL</span></div>
+                </div>
+            </div>
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                <h3><i class="fas fa-globe"></i> Web Technologies</h3>
+                <div class="skills-grid">
+                    <div class="skill-card"><i class="fab fa-html5"></i><span>HTML</span></div>
+                    <div class="skill-card"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+                    <div class="skill-card"><i class="fab fa-react"></i><span>React.js</span></div>
+                    <div class="skill-card"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                </div>
+            </div>
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                <h3><i class="fas fa-brain"></i> Data Science Libraries</h3>
+                <div class="skills-grid">
+                    <div class="skill-card"><i class="fas fa-table"></i><span>Pandas</span></div>
+                    <div class="skill-card"><i class="fas fa-calculator"></i><span>NumPy</span></div>
+                    <div class="skill-card"><i class="fas fa-brain"></i><span>Machine Learning</span></div>
+                    <div class="skill-card"><i class="fas fa-language"></i><span>NLP</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internships Section -->
+    <section class="internships" id="internships">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Experience</h2>
+                <p>Hands-on industry exposure through structured internships.</p>
+            </div>
+            <div class="internship-grid">
+                <div class="internship-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="internship-header">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(45deg, #0066ff, #00e5ff); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">ITS</div>
+                        <div>
+                            <h3>AI – Data Science Intern</h3>
+                            <span>Inspire Tech Solutions</span>
+                        </div>
+                    </div>
+                    <ul class="internship-details">
+                        <li><i class="fas fa-calendar-alt"></i> May 2025 – June 2025</li>
+                        <li><i class="fas fa-laptop-code"></i> Online Internship</li>
+                        <li><i class="fas fa-chart-line"></i> Power BI, Python, SQL</li>
+                    </ul>
+                    <p class="internship-desc">
+                        Gained hands-on experience in data analytics and business intelligence using Power BI. Worked on data modeling, DAX functions, report building, and interactive dashboards.
+                    </p>
+                </div>
+                <div class="internship-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="internship-header">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(45deg, #0066ff, #00e5ff); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">HEPL</div>
+                        <div>
+                            <h3>Software Development Intern</h3>
+                            <span>HEPL (Helping Enterprises Level Up)</span>
+                        </div>
+                    </div>
+                    <ul class="internship-details">
+                        <li><i class="fas fa-calendar-alt"></i> Dec 2025 – Mar 2026</li>
+                        <li><i class="fas fa-clock"></i> 09 AM – 06 PM</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Cuddalore, Tamil Nadu</li>
+                    </ul>
+                    <p class="internship-desc">
+                        Worked with the IT – Software Development team, collaborating across all project phases including planning, development, and execution.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards" id="awards">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Awards & Achievements</h2>
+                <p>Recognitions and accomplishments throughout my academic journey.</p>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="award-badge">Best Paper Award</span>
+                    <div class="award-header">
+                        <h3>National Conference on Emerging Science and Technologies</h3>
+                        <span>SRM University & ESN Publications</span>
+                    </div>
+                    <div class="award-details">
+                        <p>Delivered a research presentation on "Empirical Analysis of Factors Influencing Obesity Trends in Real Life" in collaboration with IQAC and ESN Publications.</p>
+                        <p>Received the Best Paper Award, along with a cash prize, for notable contributions to the intersection of health and technology and study's impact on research trends.</p>
+                    </div>
+                    <div class="award-date">
+                        <i class="fas fa-calendar"></i> November 2024
+                    </div>
+                </div>
+                <div class="award-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="award-badge">Workshop Completion</span>
+                    <div class="award-header">
+                        <h3>Advanced Science and Application of Generative AI & ML</h3>
+                        <span>Government Arts and Science College</span>
+                    </div>
+                    <div class="award-details">
+                        <p>Completed a one-week workshop on research methodology, data analysis, and visualization. Organized by Department of Computer Science and Applications in association with CSI, IIC, and SDG.</p>
+                        <p>Gained hands-on experience with cutting-edge AI and ML techniques for practical applications.</p>
+                    </div>
+                    <div class="award-date">
+                        <i class="fas fa-calendar"></i> March 2024
+                    </div>
+                </div>
+                <div class="award-card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="award-badge">Research Presentation</span>
+                    <div class="award-header">
+                        <h3>International Conference on AI in Education</h3>
+                        <span>ICT Academy Sponsored</span>
+                    </div>
+                    <div class="award-details">
+                        <p>Presented research paper "Advancing High-Quality Education Through AI-Driven Scientific and Technological Innovation" at an international conference.</p>
+                        <p>Shared key insights on the transformative role of artificial intelligence in enhancing educational methodologies, emphasizing its impact on scientific and technological learning.</p>
+                    </div>
+                    <div class="award-date">
+                        <i class="fas fa-calendar"></i> January 2024
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Projects</h2>
+                <p>Academic and practical projects showcasing my skills in Data Science and Full Stack Development.</p>
+            </div>
+            <div class="project-grid">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="project-title">
+                            <h3>Chronic Kidney Disease Prediction</h3>
+                            <span class="project-badge">Machine Learning</span>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        Developed a predictive model using epidemiological and molecular data to identify individuals at risk of CKD with enhanced accuracy through multi-omics analysis.
+                    </p>
+                    <div class="project-details">
+                        <h4><i class="fas fa-tasks"></i> Key Responsibilities</h4>
+                        <ul class="project-points">
+                            <li><i class="fas fa-dna"></i> Analyzed genetic, transcriptomic, proteomic, and metabolomic datasets</li>
+                            <li><i class="fas fa-chart-line"></i> Developed and validated multimarker classifiers</li>
+                            <li><i class="fas fa-vial"></i> Conducted large-scale biomarker validation</li>
+                            <li><i class="fas fa-bullseye"></i> Achieved 92% prediction accuracy in early detection</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech-stack">
+                        <h4><i class="fas fa-code"></i> Technologies Used</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-chart-bar"></i> Scikit-learn</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i> Pandas/NumPy</span>
+                            <span class="tech-tag"><i class="fas fa-project-diagram"></i> TensorFlow</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="btn-outline project-btn" onclick="showProjectDetails('ckd')">
+                            <i class="fas fa-external-link-alt"></i> View Details
+                        </button>
+                        <span class="project-date">Completed: Jan 2024</span>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="project-title">
+                            <h3>Bill Management System</h3>
+                            <span class="project-badge">Full Stack</span>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        A comprehensive bill tracking and management system with automated calculations, invoice generation, and financial reporting capabilities.
+                    </p>
+                    <div class="project-details">
+                        <h4><i class="fas fa-tasks"></i> Key Features</h4>
+                        <ul class="project-points">
+                            <li><i class="fas fa-database"></i> Real-time database management with CRUD operations</li>
+                            <li><i class="fas fa-calculator"></i> Automated bill calculations and tax computations</li>
+                            <li><i class="fas fa-shield-alt"></i> Secure user authentication and data encryption</li>
+                            <li><i class="fas fa-chart-pie"></i> Interactive financial dashboards and reports</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech-stack">
+                        <h4><i class="fas fa-code"></i> Technologies Used</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                            <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="tech-tag"><i class="fab fa-react"></i> React</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="btn-outline project-btn" onclick="showProjectDetails('bills')">
+                            <i class="fas fa-external-link-alt"></i> View Details
+                        </button>
+                        <span class="project-date">Completed: Nov 2023</span>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="project-title">
+                            <h3>Personalized Fashion Recommendation System</h3>
+                            <span class="project-badge">AI & Full Stack</span>
+                        </div>
+                    </div>
+                    <p class="project-desc">
+                        AI-driven fashion recommendation engine using ML, Deep Learning, and collaborative filtering to deliver personalized shopping experiences.
+                    </p>
+                    <div class="project-details">
+                        <h4><i class="fas fa-tasks"></i> Key Achievements</h4>
+                        <ul class="project-points">
+                            <li><i class="fas fa-robot"></i> Implemented hybrid recommendation engine (Collaborative + Content-based)</li>
+                            <li><i class="fas fa-brain"></i> Neural Network-based content understanding module</li>
+                            <li><i class="fas fa-bolt"></i> Real-time recommendations with 85% user satisfaction</li>
+                            <li><i class="fas fa-layer-group"></i> Full MERN stack implementation</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech-stack">
+                        <h4><i class="fas fa-code"></i> Technologies Used</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python ML</span>
+                            <span class="tech-tag"><i class="fab fa-react"></i> React</span>
+                            <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i> MongoDB</span>
+                            <span class="tech-tag"><i class="fas fa-chart-line"></i> TensorFlow</span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="btn-outline project-btn" onclick="showProjectDetails('fashion')">
+                            <i class="fas fa-external-link-alt"></i> Case Study
+                        </button>
+                        <a href="https://github.com/yourusername/fashion-recommendation" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <span class="project-date">Completed: Mar 2024</span>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more" data-aos="fade-up" data-aos-delay="400">
+                <button class="btn btn-primary" onclick="window.location.href='#contact'">
+                    <i class="fas fa-paper-plane"></i> Start a Project
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind? Let's discuss how we can bring your ideas to life.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Location</h3>
+                            <p>Chennai, Tamil Nadu</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p>+91 93605 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>yo23@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>LinkedIn</h3>
+                            <p>linkedin.com/in/21618528a</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Mentoring</h3>
+                            <p>Conducted sessions on research presentation strategies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Yousufzz</div>
+                    <p>Data Science student passionate about building intelligent solutions that bridge the gap between data and real-world applications.</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/21618528a" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/yousufzz" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:yo23@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+919360512345" class="social-link"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">About</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#awards">Awards</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Expertise</h3>
+                    <ul>
+                        <li><a href="#projects">Data Science</a></li>
+                        <li><a href="#projects">Machine Learning</a></li>
+                        <li><a href="#projects">Web Development</a></li>
+                        <li><a href="#projects">Research Analysis</a></li>
+                        <li><a href="#internships">Internships</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Research Interests</h3>
+                    <ul>
+                        <li>Healthcare Analytics</li>
+                        <li>AI in Education</li>
+                        <li>Recommendation Systems</li>
+                        <li>Data Visualization</li>
+                        <li>Full Stack Development</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Sheik Yousuf B A. All rights reserved.</p>
+                <p>Designed and developed with ❤ by Yousufzz</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="project-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeProjectModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Project Modal Functions
+        function showProjectDetails(projectId) {
+            const modal = document.getElementById('projectModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            let content = '';
+            
+            switch(projectId) {
+                case 'ckd':
+                    content = `
+                        <div class="project-modal-content">
+                            <h2><i class="fas fa-heartbeat"></i> Chronic Kidney Disease Prediction</h2>
+                            <div class="modal-meta">
+                                <span><i class="fas fa-calendar"></i> Jan 2024</span>
+                                <span><i class="fas fa-tag"></i> Machine Learning</span>
+                                <span><i class="fas fa-user"></i> Individual Project</span>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3><i class="fas fa-bullseye"></i> Project Overview</h3>
+                                <p>Developed an advanced predictive model for early detection of Chronic Kidney Disease using multi-omics data integration and machine learning algorithms. The project focused on identifying biomarkers and patterns in epidemiological and molecular data to predict CKD risk with high accuracy.</p>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3><i class="fas fa-tasks"></i> Technical Implementation</h3>
+                                <ul>
+                                    <li>Data preprocessing and feature engineering on multi-omics datasets</li>
+                                    <li>Implemented Random Forest, XGBoost, and Neural Network models</li>
+                                    <li>Cross-validation and hyperparameter tuning for optimal performance</li>
+                                    <li>SHAP analysis for interpretability of model predictions</li>
+                                    <li>Achieved 92% accuracy in early-stage detection</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3><i class="fas fa-chart-line"></i> Results & Impact</h3>
+                                <ul>
+                                    <li>Identified key biomarkers for early CKD detection</li>
+                                    <li>Reduced false positives by 30% compared to traditional methods</li>
+                                    <li>Implemented a web dashboard for result visualization</li>
+                                    <li>Potential for integration with healthcare systems</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'fashion':
+                    content = `
+                        <div class="project-modal-content">
+                            <h2><i class="fas fa-tshirt"></i> Personalized Fashion Recommendation System</h2>
+                            <div class="modal-meta">
+                                <span><i class="fas fa-calendar"></i> Mar 2024</span>
+                                <span><i class="fas fa-tag"></i> Full Stack AI</span>
+                                <span><i class="fas fa-users"></i> Team Project</span>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3><i class="fas fa-bullseye"></i> Project Overview</h3>
+                                <p>Developed a hybrid recommendation system combining collaborative filtering and deep learning for personalized fashion recommendations using the H&M dataset. The system provides real-time, personalized fashion suggestions based on user behavior and preferences.</p>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3><i class="fas fa-tasks"></i> Technical Implementation</h3>
+                                <ul>
+                                    <li><strong>Frontend:</strong> React.js with Redux for state management</li>
+                                    <li><strong>Backend:</strong> Node.js with Express.js REST API</li>
+                                    <li><strong>Database:</strong> MongoDB for user data, Redis for caching</li>
+                                    <li><strong>ML Models:</strong> Matrix Factorization, Neural Collaborative Filtering</li>
+                                    <li><strong>Deployment:</strong> Docker containers on AWS EC2</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3><i class="fas fa-chart-line"></i> Results & Impact</h3>
+                                <ul>
+                                    <li>85% user satisfaction rate in A/B testing</li>
+                                    <li>40% improvement in click-through rates</li>
+                                    <li>Reduced cold-start problem by 60%</li>
+                                    <li>Real-time recommendations under 100ms</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="modal-links">
+                                <a href="https://github.com/yourusername/fashion-recommendation" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'bills':
+                    content = `
+                        <div class="project-modal-content">
+                            <h2><i class="fas fa-file-invoice-dollar"></i> Bill Management System</h2>
+                            <div class="modal-meta">
+                                <span><i class="fas fa-calendar"></i> Nov 2023</span>
+                                <span><i class="fas fa-tag"></i> Full Stack</span>
+                                <span><i class="fas fa-user"></i> Individual Project</span>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3><i class="fas fa-bullseye"></i> Project Overview</h3>
+                                <p>A comprehensive bill management system designed to streamline financial tracking and invoice management for small to medium businesses. The system automates bill calculations, generates professional invoices, and provides detailed financial reports.</p>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3><i class="fas fa-tasks"></i> Key Features</h3>
+                                <ul>
+                                    <li>Automated bill calculation with tax computation</li>
+                                    <li>Invoice generation and PDF export</li>
+                                    <li>Customer management and payment tracking</li>
+                                    <li>Financial dashboard with analytics</li>
+                                    <li>Multi-user role-based access control</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="modal-section">
+                                <h3><i class="fas fa-code"></i> Technologies Used</h3>
+                                <div class="modal-tech">
+                                    <span>React.js</span>
+                                    <span>Node.js</span>
+                                    <span>MySQL</span>
+                                    <span>Express.js</span>
+                                    <span>JWT Auth</span>
+                                    <span>Chart.js</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            modalContent.innerHTML = content;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target === modal) {
+                closeProjectModal();
+            }
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 15, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.background = 'rgba(10, 10, 15, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
