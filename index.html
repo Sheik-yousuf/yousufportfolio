@@ -1286,6 +1286,98 @@
             color: var(--neon-green);
         }
 
+        .contact-social {
+            grid-column: 1 / -1;
+        }
+
+        .contact-links {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .contact-link i {
+            font-size: 1.2rem;
+        }
+
+        .contact-link.linkedin {
+            background: rgba(0, 119, 181, 0.1);
+            color: #0077b5;
+            border-color: rgba(0, 119, 181, 0.3);
+        }
+
+        .contact-link.linkedin:hover {
+            background: #0077b5;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+        }
+
+        .contact-link.email {
+            background: rgba(234, 67, 53, 0.1);
+            color: #ea4335;
+            border-color: rgba(234, 67, 53, 0.3);
+        }
+
+        .contact-link.email:hover {
+            background: #ea4335;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
+        }
+
+        .contact-link.github {
+            background: rgba(51, 51, 51, 0.1);
+            color: #333;
+            border-color: rgba(51, 51, 51, 0.3);
+        }
+
+        .contact-link.github:hover {
+            background: #333;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(51, 51, 51, 0.4);
+        }
+
+        .contact-link.instagram {
+            background: rgba(225, 48, 108, 0.1);
+            color: #e1306c;
+            border-color: rgba(225, 48, 108, 0.3);
+        }
+
+        .contact-link.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         .contact-form {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -2156,6 +2248,37 @@
                         <div class="contact-text">
                             <h3>Working Hours</h3>
                             <p>Mon-Fri: 9AM - 6PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-item contact-social">
+                        <div class="contact-text">
+                            <h3>Connect With Me</h3>
+                            <ul class="contact-links">
+                                <li>
+                                    <a href="https://www.linkedin.com/in/sheik-yousuf" target="_blank" rel="noopener noreferrer" class="contact-link linkedin">
+                                        <i class="fab fa-linkedin-in"></i>
+                                        <span>LinkedIn</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:yousuf28003@gmail.com" class="contact-link email">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>Email</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/yousuf" target="_blank" rel="noopener noreferrer" class="contact-link github">
+                                        <i class="fab fa-github"></i>
+                                        <span>GitHub</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/theyusuffz/" target="_blank" rel="noopener noreferrer" class="contact-link instagram">
+                                        <i class="fab fa-instagram"></i>
+                                        <span>Instagram</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
